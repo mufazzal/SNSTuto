@@ -1,0 +1,118 @@
+service: FeedSNSTuto
+provider:
+  name: aws
+  stage: beta
+  region: us-east-1  
+  runtime: nodejs12.x
+  profile: Mufazzal_Hussain
+  environment:
+    FeedSNSTopicARN:
+      Ref: FeedSNSTopic
+    FeedSNSDLQArn:
+      Fn::GetAtt: 
+      - FeedSNSDLQ
+      - "Arn"    
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - logs:CreateLogGroup
+      Resource: 'arn:aws:logs:*:*:*'   
+
+functions:
+  sendSNSFeed:
+    handler: sendFeed/src/handler.sendSNSMFeed
+    layers: 
+     - arn:aws:lambda:us-east-1:388412347424:layer:commonLibs:5
+     - arn:aws:lambda:us-east-1:388412347424:layer:sendFeedLib:3
+    iamRoleStatementsInherit: true
+    iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - sns:Publish
+      Resource:
+        Ref: FeedSNSTopic
+    events:
+     - http:
+        path: /sendSNSFeed
+        method: POST
+        cors: true
+        authorizer:
+         arn: arn:aws:cognito-idp:us-east-1:388412347424:userpool/us-east-1_d8rcMtMXj
+
+  subscribeSNSFeed:
+    handler: subscribeFeed/src/handler.subscribeSNSFeed
+    layers: 
+     - arn:aws:lambda:us-east-1:388412347424:layer:commonLibs:5
+     - arn:aws:lambda:us-east-1:388412347424:layer:subscribeFeedLib:1
+    iamRoleStatementsInherit: true
+    iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - sns:Subscribe
+      Resource:
+        Ref: FeedSNSTopic     
+    events:
+     - http:
+        path: /subscribe
+        method: PUT
+        cors: true
+        authorizer:
+         arn: arn:aws:cognito-idp:us-east-1:388412347424:userpool/us-east-1_d8rcMtMXj         
+
+  unSubscribeSNSFeed:
+      handler: unSubscribeFeed/src/handler.unSubscribeSNSFeed
+      layers: 
+      - arn:aws:lambda:us-east-1:388412347424:layer:commonLibs:5
+      - arn:aws:lambda:us-east-1:388412347424:layer:unSubscribeFeedLib:1
+      iamRoleStatementsInherit: true
+      iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+        - SNS:UnSubscribe
+        - SNS:ListSubscriptionsByTopic 
+        Resource:
+          Ref: FeedSNSTopic     
+      events:
+      - http:
+          path: /unSubscribe
+          method: DELETE
+          cors: true
+          authorizer:
+          arn: arn:aws:cognito-idp:us-east-1:388412347424:userpool/us-east-1_d8rcMtMXj
+
+  lambdaSnsSubscriber:
+      handler: lambdaSnsSubscriber/src/handler.lambdaSnsSubscriber
+      layers: 
+        - arn:aws:lambda:us-east-1:388412347424:layer:commonLibs:5      
+      events:
+        - sns:
+            arn: 
+              Ref: FeedSNSTopic
+            topicName: SNSFeed-${self:provider.stage}
+            redrivePolicy:
+              deadLetterTargetRef: FeedSNSDLQ
+
+package:
+  exclude:
+    - sendFeed/node_modules/**  
+    - subscribeFeed/node_modules/**  
+    - unSubscribeFeed/node_modules/**  
+    - node_modules/**
+
+resources:
+  Resources:
+    FeedSNSTopic:
+      Type: AWS::SNS::Topic
+      Properties: 
+        DisplayName: SNS for feed sent by user
+        TopicName: SNSFeed-${self:provider.stage}
+    FeedSNSDLQ:
+          Type: AWS::SQS::Queue
+          Properties:
+            QueueName: SNSFeedDLQ-${self:provider.stage}
+    
+
+plugins:
+  - serverless-iam-roles-per-function
+  
+    

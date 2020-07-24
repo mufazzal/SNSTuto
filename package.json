@@ -1,0 +1,37 @@
+{
+  "name": "apigetwayauthtuto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "node scripts/clean",
+    "package": "node scripts/tasks package",
+    "deploy": "node scripts/tasks deploy",
+    "delete": "node scripts/tasks delete",
+
+    "updateFunLambdaSnsSubscriber": "node scripts/tasks updateFun lambdaSnsSubscriber",
+    "updateFunSendSNSFeed": "node scripts/tasks updateFun sendSNSFeed",
+    "updateFunSubscribeSNSFeed": "node scripts/tasks updateFun subscribeSNSFeed",
+    "updateUnSubscribeSNSFeed": "node scripts/tasks updateFun unSubscribeSNSFeed",
+
+    "runSendSNSFeed": "node scripts/tasks runFunction sendSNSFeed L",
+    "runSubscribeSNSFeed": "node scripts/tasks runFunction subscribeSNSFeed L",
+    "runUnSubscribeSNSFeed": "node scripts/tasks runFunction unSubscribeSNSFeed L",
+    "runLambdaSnsSubscriber": "node scripts/tasks runFunction lambdaSnsSubscriber L",
+
+    "runSendSNSFeedDeployed": "node scripts/tasks runFunction sendSNSFeed C",
+    "runSubscribeSNSFeedDeployed": "node scripts/tasks runFunction subscribeSNSFeed C",
+    "rununSubscribeSNSFeedDeployed": "node scripts/tasks runFunction unSubscribeSNSFeed C",
+    "runLambdaSnsSubscriberDeployed": "node scripts/tasks runFunction lambdaSnsSubscriber C",
+
+    "logsLambdaSnsSubscriber": "node scripts/tasks  getLogs lambdaSnsSubscriber"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rimraf": "^3.0.2",
+    "serverless": "^1.75.1",
+    "serverless-iam-roles-per-function": "^2.0.2"
+  }
+}
