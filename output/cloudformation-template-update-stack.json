@@ -171,7 +171,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/FeedSNSTuto/dev/1595496239332-2020-07-23T09:23:59.332Z/sendSNSFeed.zip"
+          "S3Key": "serverless/FeedSNSTuto/dev/1597298820707-2020-08-13T06:07:00.707Z/sendSNSFeed.zip"
         },
         "FunctionName": "FeedSNSTuto-dev-sendSNSFeed",
         "Handler": "sendSNSFeed/src/handler.sendSNSMFeed",
@@ -206,14 +206,14 @@
         "SendSNSFeedLogGroup"
       ]
     },
-    "SendSNSFeedLambdaVersionn5gCFtv7X9kHm3TXcHoES8vvxQrpxPNfFUYwlbZ7oC8": {
+    "SendSNSFeedLambdaVersionHC7xBuXglprsEir0bKuAjeDWkBvX7rbCatvSp6hes0A": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SendSNSFeedLambdaFunction"
         },
-        "CodeSha256": "pzOtrKBh7uQc4smezQErEtIGWEmhqfA7WEeO/Tac8WM="
+        "CodeSha256": "b4/TtGn+Xe3qrvHbF1374SxWWcLRtJo9g98BExiLO6E="
       }
     },
     "SubscribeSNSFeedLambdaFunction": {
@@ -223,7 +223,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/FeedSNSTuto/dev/1595496239332-2020-07-23T09:23:59.332Z/subscribeSNSFeed.zip"
+          "S3Key": "serverless/FeedSNSTuto/dev/1597298820707-2020-08-13T06:07:00.707Z/subscribeSNSFeed.zip"
         },
         "FunctionName": "FeedSNSTuto-dev-subscribeSNSFeed",
         "Handler": "subscribeSNSFeed/src/handler.subscribeSNSFeed",
@@ -258,14 +258,14 @@
         "SubscribeSNSFeedLogGroup"
       ]
     },
-    "SubscribeSNSFeedLambdaVersion8KoXP1AuzHNXUfrwW0q09LfmB5VQfLuV4nekgItJY": {
+    "SubscribeSNSFeedLambdaVersion5GCQUdQDUsfuj7GnOhRSnRNylwaRHD0d0YkdgFHNGWs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SubscribeSNSFeedLambdaFunction"
         },
-        "CodeSha256": "vLgoTy7z8ppwLLYgzxxGr91pfxrMcLpoNAcMJvTMUL0="
+        "CodeSha256": "hQ2ZwiKrX8w8+nowCAQAzG5pmtiuqNTQQxd46m+wOIM="
       }
     },
     "UnSubscribeSNSFeedLambdaFunction": {
@@ -275,7 +275,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/FeedSNSTuto/dev/1595496239332-2020-07-23T09:23:59.332Z/unSubscribeSNSFeed.zip"
+          "S3Key": "serverless/FeedSNSTuto/dev/1597298820707-2020-08-13T06:07:00.707Z/unSubscribeSNSFeed.zip"
         },
         "FunctionName": "FeedSNSTuto-dev-unSubscribeSNSFeed",
         "Handler": "unSubscribeSNSFeed/src/handler.unSubscribeSNSFeed",
@@ -310,14 +310,14 @@
         "UnSubscribeSNSFeedLogGroup"
       ]
     },
-    "UnSubscribeSNSFeedLambdaVersiongYYNpqw4OVGUbA67H8GZhAiWLleaDJ0SqpixuL2aQ": {
+    "UnSubscribeSNSFeedLambdaVersioncORRhUILwpXkjKHBDp9MIOujjnaKXRHP9zL3n1aaw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UnSubscribeSNSFeedLambdaFunction"
         },
-        "CodeSha256": "OzTP7PPJRSzQVhuFRRf5att+NnzUU1NorEmkLb/LP9M="
+        "CodeSha256": "n9FUgT8iQYQb/sj8UtshmtIyIRUBygem7in3zCGkONU="
       }
     },
     "LambdaSnsSubscriberLambdaFunction": {
@@ -327,7 +327,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/FeedSNSTuto/dev/1595496239332-2020-07-23T09:23:59.332Z/lambdaSnsSubscriber.zip"
+          "S3Key": "serverless/FeedSNSTuto/dev/1597298820707-2020-08-13T06:07:00.707Z/lambdaSnsSubscriber.zip"
         },
         "FunctionName": "FeedSNSTuto-dev-lambdaSnsSubscriber",
         "Handler": "lambdaSnsSubscriber/src/handler.lambdaSnsSubscriber",
@@ -361,14 +361,14 @@
         "LambdaSnsSubscriberLogGroup"
       ]
     },
-    "LambdaSnsSubscriberLambdaVersioncSTg2s8TpuUHrupRyQ2z5GJJbN5yVBbkzajxhMpIY": {
+    "LambdaSnsSubscriberLambdaVersionwTMeveUte53zvD9KaTDtbQirf8rPn19HYTsnVodL84o": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LambdaSnsSubscriberLambdaFunction"
         },
-        "CodeSha256": "IFkS6agoL1U70ae5kSeeZj/cdEeMvX8o0YO+Gu+/cN8="
+        "CodeSha256": "BNXnsECW/Q7feNmwvt7Tf4mRqeyS2yMZxlBvTud5rsE="
       }
     },
     "ApiGatewayRestApi": {
@@ -719,7 +719,7 @@
         ]
       }
     },
-    "ApiGatewayDeployment1595495862770": {
+    "ApiGatewayDeployment1597298523626": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1198,25 +1198,25 @@
     "SendSNSFeedLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SendSNSFeedLambdaVersionn5gCFtv7X9kHm3TXcHoES8vvxQrpxPNfFUYwlbZ7oC8"
+        "Ref": "SendSNSFeedLambdaVersionHC7xBuXglprsEir0bKuAjeDWkBvX7rbCatvSp6hes0A"
       }
     },
     "SubscribeSNSFeedLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SubscribeSNSFeedLambdaVersion8KoXP1AuzHNXUfrwW0q09LfmB5VQfLuV4nekgItJY"
+        "Ref": "SubscribeSNSFeedLambdaVersion5GCQUdQDUsfuj7GnOhRSnRNylwaRHD0d0YkdgFHNGWs"
       }
     },
     "UnSubscribeSNSFeedLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UnSubscribeSNSFeedLambdaVersiongYYNpqw4OVGUbA67H8GZhAiWLleaDJ0SqpixuL2aQ"
+        "Ref": "UnSubscribeSNSFeedLambdaVersioncORRhUILwpXkjKHBDp9MIOujjnaKXRHP9zL3n1aaw"
       }
     },
     "LambdaSnsSubscriberLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LambdaSnsSubscriberLambdaVersioncSTg2s8TpuUHrupRyQ2z5GJJbN5yVBbkzajxhMpIY"
+        "Ref": "LambdaSnsSubscriberLambdaVersionwTMeveUte53zvD9KaTDtbQirf8rPn19HYTsnVodL84o"
       }
     },
     "ServiceEndpoint": {

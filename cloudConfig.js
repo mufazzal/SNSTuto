@@ -1,6 +1,7 @@
 const STAGE = "dev";
 const REGION = "us-east-1";
 const AWSROOTACCID = "388412347424";
+const USERTABLENAME = "MufUser"
 
 const cloudConfig = {
     stage: STAGE,
